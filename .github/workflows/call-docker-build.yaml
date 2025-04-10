@@ -23,6 +23,15 @@ on:
 
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Debugging secrets
+        run: |
+          echo "Dockerhub Username = ${{ secrets.DOCKERHUB_USERNAME }}"
+          echo "Dockerhub Token = ${{ secrets.DOCKERHUB_TOKEN }}"
+
   build-image:
     name: Build Image
     runs-on: ubuntu-latest
