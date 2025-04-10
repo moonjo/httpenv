@@ -25,24 +25,22 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: dev
     steps:
       - name: Debugging secrets
         run: |
-          echo "Dockerhub Username = ${{ secrets.DOCKERHUB_USERNAME }}"
-          echo "Dockerhub Token = ${{ secrets.DOCKERHUB_TOKEN }}"
+          echo "Dockerhub Username = ${{ secrets.DH_USERNAME }}"
+          echo "Dockerhub Token = ${{ secrets.DH_TOKEN }}"
 
   build-image:
     name: Build Image
     runs-on: ubuntu-latest
-    environment: dev
     steps:
             
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DH_USERNAME }}
+          password: ${{ secrets.DH_TOKEN }}
       
       - name: Docker build
         uses: docker/build-push-action@v6
