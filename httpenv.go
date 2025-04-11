@@ -6,6 +6,10 @@ import (
   "os"
   "strings"
 )
+func hello(w http.ResponseWriter, r *http.Request) {
+  greetings := "Hello"
+  fmt.Frintf(w, greetings)
+}
 func serve(w http.ResponseWriter, r *http.Request) {
   env := map[string]string{}
   for _, keyval := range os.Environ() {
@@ -22,6 +26,7 @@ func serve(w http.ResponseWriter, r *http.Request) {
 func main() {
   fmt.Printf("Starting httpenv listening on port 8888.\n")
   http.HandleFunc("/", serve)
+  http.HandleFunc("/hello", hello)
   if err := http.ListenAndServe(":8888", nil); err != nil {
     panic(err)
   }
