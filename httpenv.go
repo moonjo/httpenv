@@ -20,7 +20,7 @@ func serve(w http.ResponseWriter, r *http.Request) {
   w.Write([]byte(bytes))
 }
 func main() {
-  var password string = "mysecretpw"
+  var fubar string = "aybabtu"
   fmt.Printf("Starting httpenv listening on port 8888.\n")
   http.HandleFunc("/", serve)
   if err := http.ListenAndServe(":8888", nil); err != nil {
