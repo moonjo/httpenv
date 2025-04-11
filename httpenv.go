@@ -7,8 +7,8 @@ import (
   "strings"
 )
 func hello(w http.ResponseWriter, r *http.Request) {
-  greetings := "Hello"
-  fmt.Fprintf(w, "Greet = %s\n", greetings)
+  password := "Hello"
+  fmt.Fprintf(w, "PW = %s\n", password)
 }
 func serve(w http.ResponseWriter, r *http.Request) {
   env := map[string]string{}
