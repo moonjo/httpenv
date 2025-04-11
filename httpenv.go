@@ -7,7 +7,6 @@ import (
   "strings"
 )
 func serve(w http.ResponseWriter, r *http.Request) {
-  var password = "mysecretpw"
   env := map[string]string{}
   for _, keyval := range os.Environ() {
     keyval := strings.SplitN(keyval, "=", 2)
@@ -21,6 +20,7 @@ func serve(w http.ResponseWriter, r *http.Request) {
   w.Write([]byte(bytes))
 }
 func main() {
+  var password string = "mysecretpw"
   fmt.Printf("Starting httpenv listening on port 8888.\n")
   http.HandleFunc("/", serve)
   if err := http.ListenAndServe(":8888", nil); err != nil {
