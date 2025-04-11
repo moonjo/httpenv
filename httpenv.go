@@ -23,6 +23,7 @@ func main() {
   fmt.Printf("Starting httpenv listening on port 8888.\n")
   http.HandleFunc("/", serve)
   if err := http.ListenAndServe(":8888", nil); err != nil {
+    fmt.Printf("Something went wrong!")
     panic(err)
   }
 }
