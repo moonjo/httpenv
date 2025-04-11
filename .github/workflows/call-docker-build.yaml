@@ -75,7 +75,6 @@ jobs:
         with:
           push: true
           tags: ghcr.io/moonbal/httpenv:${{ github.run_id }}
-          target: test
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
