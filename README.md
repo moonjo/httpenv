@@ -25,3 +25,5 @@ If you `curl` it, you should get back its environment variables, including the c
 curl http://localhost:8888
 
 {"HOME":"/root","HOSTNAME":"c9d8d26bda3a","PATH":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}```
+
+Hello World!
