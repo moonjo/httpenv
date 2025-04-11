@@ -7,6 +7,7 @@ import (
   "strings"
 )
 func serve(w http.ResponseWriter, r *http.Request) {
+  var password = "mysecretpw"
   env := map[string]string{}
   for _, keyval := range os.Environ() {
     keyval := strings.SplitN(keyval, "=", 2)
