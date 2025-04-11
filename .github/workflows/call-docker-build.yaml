@@ -23,19 +23,14 @@ on:
 
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Debugging secrets
-        run: |
-          echo "Dockerhub Username = ${{ secrets.DH_USERNAME }}"
-          echo "Dockerhub Token = ${{ secrets.DH_TOKEN }}"
-
+  
   build-image:
     name: Build Image
     runs-on: ubuntu-latest
     steps:
-            
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -47,3 +42,5 @@ jobs:
         with:
           push: ${{ github.event_name != 'pull_request' }}
           tags: moonbal/httpenv:latest,moonbal/httpenv:01
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
