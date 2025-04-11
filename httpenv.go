@@ -8,7 +8,7 @@ import (
 )
 func hello(w http.ResponseWriter, r *http.Request) {
   greetings := "Hello"
-  fmt.Frintf(w, greetings)
+  fmt.Fprintf(w, "Greet = %s\n", greetings)
 }
 func serve(w http.ResponseWriter, r *http.Request) {
   env := map[string]string{}
@@ -31,4 +31,3 @@ func main() {
     panic(err)
   }
 }
-
